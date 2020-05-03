@@ -28,7 +28,7 @@
 // }
 
 const program = require('commander');
-const { getBooks } = require ('./commands')
+const { getBooks } = require ('./fetch')
 
 program
     .version('1.0.0')

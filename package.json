@@ -1,21 +1,21 @@
 {
   "name": "book_list",
   "version": "1.0.0",
-  "description": "\"Book List CLI\"",
+  "description": "A command-line reading list",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hawkins-e/Book_List.git"
+    "url": "https://github.com/hawkins-e/Reading_List.git"
   },
   "author": "Erica Hawkins",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hawkins-e/Book_List/issues"
+    "url": "https://github.com/hawkins-e/Reading_List.git/issues"
   },
-  "homepage": "https://github.com/hawkins-e/Book_List#readme",
+  "homepage": "https://github.com/hawkins-e/Reading_List.git#readme",
   "dependencies": {
     "commander": "^5.1.0",
     "inquirer": "^7.1.0",
