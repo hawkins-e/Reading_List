@@ -2,35 +2,32 @@ const mongoose = require('mongoose')
 const assert = require('assert')
 mongoose.Promise = global.Promise;
 
-const db = mongoose.connect('mongodb://localhost:27017/book_list')
 
-const bookSchema = mongoose.Schema({
-    title: { type: String },
-    author: { type: String },
-    publisher: { type: String }
-});
+const mg = mongoose.connect('mongodb://localhost:27017/book_list', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+})
 
-const Book = mongoose.model('Book', bookSchema);
+const Book = require('./models/book');
 
+//Add Book 
 const addBook = (book) => {
-    Book.create(book, (err) => {
-        assert.equal(null, err);
+    Book.create(book).then(book => {
         console.info("New Book added");
         mongoose.disconnect();
     })
 }
 
-const getBookList = () => {
+// Reading List 
+const getReadingList = () => {
     Book.find()
-    .exec((err, books) => {
-        assert.equal(null, err);
+    .then(books => {
         console.info(books);
-        console.info(`${books.length} matches`)
-        mongoose.disconnect();
-    })
+    mongoose.disconnect();
+    });
 }
 
 module.exports = {
     addBook,
-    getBookList
+    getReadingList
 }
