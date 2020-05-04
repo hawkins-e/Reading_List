@@ -27,7 +27,57 @@ const getReadingList = () => {
     });
 }
 
+
+const handleNewBook = (T,newArray) => {
+
+    console.log(T,newArray);
+
+    // if (T === "Title 1") {
+    //     let newBook = new Book({
+    //             title: bookArray[0].title,
+    //             author: bookArray[0].author,
+    //             publisher: bookArray[0].publisher
+    //     });
+    //     console.log(newBook)
+
+    // } else if (T === "Title 2") {
+    //     let newBook = new Book({
+    //         title: a.booksearch[1].title,
+    //         author: a.booksearch[1].author,
+    //         publisher: a.booksearch[1].publisher
+    //     })  
+    //     console.log(newBook)
+    
+    // } else if (T === "Title 3") {
+    //     let newBook = new Book({
+    //         title: a.booksearch[2].title,
+    //         author: a.booksearch[2].author,
+    //         publisher: a.booksearch[2].publisher
+    //     })
+        
+    //     console.log(newBook)
+
+    // } else if (T === "Title 4") {
+    //     let newBook = new Book({
+    //         title: a.booksearch[3].title,
+    //         author: a.booksearch[3].author,
+    //         publisher: a.booksearch[3].publisher
+    //     })
+        
+    //     console.log(newBook)
+    // }  else if (T === "Title 4") {
+    //     let newBook = new Book({
+    //         title: a.booksearch[3].title,
+    //         author: a.booksearch[3].author,
+    //         publisher: a.booksearch[3].publisher
+    //     })
+        
+    //     console.log(newBook)
+}
+
+
 module.exports = {
     addBook,
-    getReadingList
+    getReadingList,
+    handleNewBook
 }

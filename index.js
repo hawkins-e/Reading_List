@@ -1,19 +1,17 @@
 const program = require('commander');
-const { addBook, getReadingList } = require ('./commands');
+const bookArray = [];
+const { handleNewBook, getReadingList } = require ('./commands');
 const { prompt } = require('inquirer');
-
+const Book = require('./models/book');
 
 const fetch = require('node-fetch')
-const bookArray = []
-const bookTitles = []
-
 
 var questions = [
       {
         type: "input", 
         name: "booksearch",
         message: "Welcome! Enter A Book or Author You are Looking For!"
-      },
+      }
 
 ]  
 
@@ -29,9 +27,10 @@ var questions2 =[
 ]
 
 const getBooks = async(search) => {
+
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
     const data = await response.json();
-     console.log(search)
+    
 
       const newBook1 = {
       title: data.items[0].volumeInfo.title,
@@ -62,20 +61,15 @@ const getBooks = async(search) => {
       author: data.items[4].volumeInfo.authors[0],
       publisher: data.items[4].volumeInfo.publisher
       } 
+      
+      console.log(newBook1,newBook2,newBook3,newBook4,newBook5);
+
+      const newArray = bookArray.push(newBook1,newBook2,newBook3,newBook4,newBook5);
+      console.log(newArray);
     
-      console.log(newBook1,newBook2,newBook3,newBook4, newBook5)
-
-
-      bookArray.push(newBook1,newBook2,newBook3,newBook4, newBook5)
-
-      for(var i=0; i<bookArray.length; i++){
-        bookTitles.push(bookArray[i].title);
-      }
-
-return(bookArray)
-// console.log(bookTitles)
-}
-
+      
+};
+    
 program
 .version('1.0.0')
 .description('Reading List Application')
@@ -86,36 +80,16 @@ program
 .description('See the top 5 results from the Google API for the requested search')
 .action(() => {
     prompt(questions).then((answers) => {
-    getBooks(answers.booksearch)
-    .then(prompt(questions2)
-    .then((answers => console.log(answers))) 
-
-    )})
+        getBooks(answers.booksearch)
+        .then(prompt(questions2).then((answers) => {
+            handleNewBook(answers.pickBook)}))})
 })
 
-// let newBook = new bookArray({
-    //     title: answers.booksearch[0].title,
-    //     author: answers.booksearch[0].author,
-    //     publisher: answers.booksearch[0].publisher
-    // })
-    
-    // console.log(newBook)
-
-// .action(() => {
-//     prompt(questions).then((answers) => {
-//     getBooks(answers.booksearch)
-//     .then(prompt(questions2)
-//     .then((answers => console.log(answers))) 
-
-//     )})
-    
 program
-.command('addBook <title> <author> <publisher>')
+.command('addBook')
 .alias('aB')
 .description("Adds Book to Database")
-.action((title,author,publisher) => {
-    addBook({title,author,publisher});
-});
+.action(() => handleNewBook());
 
 program 
 .command('getReadingList')
