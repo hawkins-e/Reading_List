@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hawkins-e/Reading_List.git#readme",
   "dependencies": {
+    "chalk-pipe": "^4.0.0",
     "commander": "^5.1.0",
     "inquirer": "^7.1.0",
     "mongoose": "^5.9.11",
