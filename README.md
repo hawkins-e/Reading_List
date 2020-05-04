@@ -29,6 +29,8 @@ Search for a Book: node index.js nB
 Add a Book:  node index.js aB
 Get Reading List:  node index.js gRL
 
+Note: I've included a remove function because it looked as though my database only allowed so many books at a time however, this functionality is only included for that purpose. 
+
 App Info
 Author
 Erica Hawkins 
