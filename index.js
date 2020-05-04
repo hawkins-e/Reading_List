@@ -15,15 +15,18 @@ var questions = [
         message: "Welcome! Enter A Book or Author You are Looking For!"
       },
 
-    //   {
-    //       type: "list",
-    //       name: "pickBook",
-    //       message: "Choose A Book",
-    //       choices: ["BookTitles", "BookTitles2"] 
-    //   }
 ]  
 
+var questions2 =[
 
+    {
+        type: "list",
+        name: "pickBook",
+        message: "Choose A Book to Add To Your Reading List",
+        choices: [ "Title 1", "Title 2", "Title 3","Title 4", "Title 5"] 
+    }
+
+]
 
 const getBooks = async(search) => {
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
@@ -69,35 +72,43 @@ const getBooks = async(search) => {
         bookTitles.push(bookArray[i].title);
       }
 
-console.log(bookArray)
-console.log(bookTitles)
+return(bookArray)
+// console.log(bookTitles)
 }
 
 program
 .version('1.0.0')
 .description('Reading List Application')
 
-// program
-// .command("newBook <search>")
-// .alias('nB')
-// .description('See the top 5 results from the Google API for the requested search')
-// .action(search => getBooks(search));
-
-
 program
 .command("newBook")
 .alias('nB')
 .description('See the top 5 results from the Google API for the requested search')
 .action(() => {
-    prompt(questions).then(answers => getBooks(answers));
-});
+    prompt(questions).then((answers) => {
+    getBooks(answers.booksearch)
+    .then(prompt(questions2)
+    .then((answers => console.log(answers))) 
 
-program 
-.command("chooseBook <chooseTitle>")
-.alias("cB")
-.description("Choose a Book from List")
-.action(booksearch => getTitles(booksearch))
+    )})
+})
 
+// let newBook = new bookArray({
+    //     title: answers.booksearch[0].title,
+    //     author: answers.booksearch[0].author,
+    //     publisher: answers.booksearch[0].publisher
+    // })
+    
+    // console.log(newBook)
+
+// .action(() => {
+//     prompt(questions).then((answers) => {
+//     getBooks(answers.booksearch)
+//     .then(prompt(questions2)
+//     .then((answers => console.log(answers))) 
+
+//     )})
+    
 program
 .command('addBook <title> <author> <publisher>')
 .alias('aB')
