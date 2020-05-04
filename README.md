@@ -23,6 +23,12 @@ This repo requires the following to run it smoothly on your local machine:
 Installation of mongoose 
 npm install the dependencies
 
+Commands- Run the following in this order after following the given prompts for a complete loop through the full functionality.  
+
+Search for a Book: node index.js nB
+Add a Book:  node index.js aB
+Get Reading List:  node index.js gRL
+
 App Info
 Author
 Erica Hawkins 

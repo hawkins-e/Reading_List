@@ -1,6 +1,6 @@
 const program = require('commander');
 const bookArray = [];
-const { handleNewBook, getReadingList } = require ('./commands');
+const { handleNewBook, getReadingList,removeBook, addBook} = require ('./commands');
 const { prompt } = require('inquirer');
 const Book = require('./models/book');
 
@@ -25,6 +25,8 @@ var questions2 =[
     }
 
 ]
+
+
 
 const getBooks = async(search) => {
 
@@ -64,8 +66,8 @@ const getBooks = async(search) => {
       
       console.log(newBook1,newBook2,newBook3,newBook4,newBook5);
 
-      const newArray = bookArray.push(newBook1,newBook2,newBook3,newBook4,newBook5);
-      console.log(newArray);
+      bookArray.push(newBook1,newBook2,newBook3,newBook4,newBook5);
+      console.log(bookArray);
     
       
 };
@@ -79,10 +81,16 @@ program
 .alias('nB')
 .description('See the top 5 results from the Google API for the requested search')
 .action(() => {
-    prompt(questions).then((answers) => {
-        getBooks(answers.booksearch)
-        .then(prompt(questions2).then((answers) => {
-            handleNewBook(answers.pickBook)}))})
+    prompt(questions)
+        .then((answers) => {
+            getBooks(answers.booksearch)
+        
+        .then(prompt(questions2)
+        .then((answers) => {
+            handleNewBook(answers.pickBook,bookArray)
+        }))
+        .then(getReadingList())
+        })
 })
 
 program
@@ -96,5 +104,11 @@ program
 .alias('gRL')
 .description('Get Reading List') 
 .action(() => getReadingList()) ;
+
+program 
+.command('removeBook <_id>')
+.alias('r')
+.description('Remove Book') 
+.action((_id) => removeBook(_id)) ;
 
 program.parse(process.argv);
