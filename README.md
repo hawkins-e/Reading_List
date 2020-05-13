@@ -12,7 +12,7 @@ Mongoose
 Inquirer.js     
 Commander.js   
 Node.js   
-Chalk-pipe 
+Chalk-pipe   
 Node-fetch       
  
 ## Requirements & Set-Up
@@ -29,7 +29,7 @@ Run the following in this order after following the given prompts for a complete
 **Remove Book:** node index.js r (id # of the book you wish to delete which can be found on the reading list)   
 
 ## App Info
-Author 
+Author: 
 Erica Hawkins 
 
 ## Version
