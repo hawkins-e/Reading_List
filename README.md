@@ -7,7 +7,7 @@ The application allows you to:
 - [x] From each list item, you can select it and add it a general Reading List. 
 - [x] You can view the entire list of books on your Reading List. 
 
-## Technologies.   
+## Technologies   
 Mongoose   
 Inquirer.js     
 Commander.js   
@@ -29,7 +29,7 @@ Run the following in this order after following the given prompts for a complete
 **Remove Book:** node index.js r (id # of the book you wish to delete which can be found on the reading list)   
 
 ## App Info
-Author. 
+Author 
 Erica Hawkins 
 
 ## Version
