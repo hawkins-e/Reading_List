@@ -31,7 +31,7 @@ const getReadingList = () => {
 
 // Remove Book
 const removeBook = (_id) => {
-    Book.remove({ _id })
+    Book.deleteOne({ _id })
       .then(book => {
         console.info('Book Removed');
         mongoose.disconnect();

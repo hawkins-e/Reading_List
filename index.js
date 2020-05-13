@@ -1,6 +1,6 @@
 const program = require('commander');
 const bookArray = [];
-const { handleNewBook, getReadingList,removeBook, addBook} = require ('./commands');
+const { handleNewBook, getReadingList,removeBook} = require ('./commands');
 const { prompt } = require('inquirer');
 const Book = require('./models/book');
 
@@ -33,7 +33,6 @@ const getBooks = async(search) => {
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
     const data = await response.json();
     
-
       const newBook1 = {
       title: data.items[0].volumeInfo.title,
       author: data.items[0].volumeInfo.authors[0],
@@ -63,8 +62,6 @@ const getBooks = async(search) => {
       author: data.items[4].volumeInfo.authors[0],
       publisher: data.items[4].volumeInfo.publisher
       } 
-      
-      console.log(newBook1,newBook2,newBook3,newBook4,newBook5);
 
       bookArray.push(newBook1,newBook2,newBook3,newBook4,newBook5);
       console.log(bookArray);
@@ -89,9 +86,7 @@ program
         .then((answers) => {
             handleNewBook(answers.pickBook,bookArray)
         }))
-        .then(getReadingList())
-        })
-})
+})})
 
 program
 .command('addBook')
