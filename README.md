@@ -7,33 +7,30 @@ The application allows you to:
 - [x] From each list item, you can select it and add it a general Reading List. 
 - [x] You can view the entire list of books on your Reading List. 
 
-Technologies 
-Mongoose 
-Inquirer.js
-Commander.js 
-Node.js 
+## Technologies.   
+Mongoose   
+Inquirer.js.   
+Commander.js   
+Node.js   
 Chalk-pipe 
-Node-fetch 
-
-Version
-1.0.0
-
-Requirements & Set-Up
-This repo requires the following to run it smoothly on your local machine:
+Node-fetch.  
+ 
+## Requirements & Set-Up
+This repo requires the following to run it smoothly on your local machine:  
 Installation of mongoose 
 npm install the dependencies
 
-Commands- Run the following in this order after following the given prompts for a complete loop through the full functionality.  
+## Commands
+Run the following in this order after following the given prompts for a complete loop through the full functionality.  
 
-Search for a Book: node index.js nB
-Add a Book:  node index.js aB
-Get Reading List:  node index.js gRL
+**Search for a Book:** node index.js nB.  
+**Add a Book:**  node index.js aB.   
+**Get Reading List:**  node index.js gRL.  
+**Remove Book:** node index.js r (id # of the book you wish to delete which can be found on the reading list).    
 
-Note: I've included a remove function because it looked as though my database only allowed so many books at a time however, this functionality is only included for that purpose. 
-
-App Info
-Author
+## App Info
+Author. 
 Erica Hawkins 
 
-Version
+## Version
 1.0.0
