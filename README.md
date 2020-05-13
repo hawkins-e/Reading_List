@@ -17,7 +17,7 @@ Node-fetch
  
 ## Requirements & Set-Up
 This repo requires the following to run it smoothly on your local machine:  
-Installation of mongoose 
+Installation of mongoose   
 npm install the dependencies
 
 ## Commands
