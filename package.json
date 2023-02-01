@@ -20,7 +20,7 @@
     "chalk-pipe": "^4.0.0",
     "commander": "^5.1.0",
     "inquirer": "^7.1.0",
-    "mongoose": "^5.9.11",
+    "mongoose": "^5.13.15",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {}
